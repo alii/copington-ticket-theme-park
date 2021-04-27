@@ -36,6 +36,7 @@ def ensure_paid_enough(total: int):
         grand_total_paid += iteration_paid
 
         if total > iteration_paid:
+            print(termcolor.colored(f"Uh oh! You are {total - iteration_paid} away! Please insert some more notes.", "red"))
             return closure()
 
         return grand_total_paid

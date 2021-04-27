@@ -1,6 +1,8 @@
 from random import randint
 from time import sleep
 
+import termcolor
+
 from utils import print_welcome, prompt_ticket_input, get_total_price, is_positive, ensure_paid_enough, PARK_NAME
 
 
@@ -24,7 +26,8 @@ def start_purchase_flow() -> None:
         change = total_paid - total
 
         if change > 0:
-            print(f"Paying you {change} change!")
+            green_change = termcolor.colored(str(change), "green")
+            print(f"Paying you {green_change} change!")
 
         if requires_parking_pass:
             def r(): return randint(0, 255)
